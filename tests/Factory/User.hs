@@ -5,11 +5,14 @@ module Factory.User
 import Control.Monad.Trans
 import Control.Exception(bracket_)
 import Database.MongoDB
+import Data.Text
+import Settings
 import Prelude
 -- DB
 withDB :: MonadIO m => Database -> Action m a -> m (Either Failure a)
 withDB name action = do
-  pipe <- liftIO $ runIOE $ connect (host "192.168.11.8")
+  (host', _port') <- liftIO mongoSettings
+  pipe <- liftIO $ runIOE $ connect (host $ unpack host':: Host)
   access pipe master name action
 
 dbName :: Database

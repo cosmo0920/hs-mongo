@@ -1,2 +1,4 @@
 dist*
 cabal-dev/
+mongo.json
+tests/mongo.json
