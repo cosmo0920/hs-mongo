@@ -1,10 +1,6 @@
-import Factory.User
 import Test.Hspec
 import Prelude
+import Spec
 
 main :: IO ()
 main = hspec specs
-
-specs ::Spec
-specs = it "" $ do
-  pending

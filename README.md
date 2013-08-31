@@ -32,6 +32,8 @@ $ ~/.cabal/bin/cabal-dev install --only-dependencies
 ```bash
 $ ~/.cabal/bin/cabal-dev configure [--enable-tests] #if you execute hspec tests, add --enable-tests
 $ ~/.cabal/bin/cabal-dev build
+$ cp mongo-dummy.json mongo.json
+[$ cp tests/mongo-dummy.json tests/mongo.json]
 ```
 
 * * * *
