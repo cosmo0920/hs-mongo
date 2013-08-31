@@ -1,4 +1,4 @@
-module Util
+module App.Util
   ( dbName
   , collectionName
   , printDocs ) where
