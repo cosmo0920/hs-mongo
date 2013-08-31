@@ -1,6 +1,6 @@
 import App.Mongo
 import App.Setting
-import Database.MongoDB hiding (Value)
+import Database.MongoDB
 import Prelude
 
 main :: IO ()
