@@ -9,12 +9,12 @@ import Prelude
 import Control.Lens
 import Data.Aeson.Lens
 
-mongoSettings :: IO (Text, Text)
+mongoSettings :: IO (String, String)
 mongoSettings = do
   fstr <- B.readFile "mongo.json"
   let v = decode fstr :: Maybe Value
-  let hostVal = v ^. key (pack "host") . asText
-      portVal = v ^. key (pack "port") . asText
+  let hostVal = v ^. key (pack "host") :: Maybe String
+      portVal = v ^. key (pack "port") :: Maybe String
   let _host = fromJust hostVal
       _port =  fromJust portVal
   return (_host,_port)

@@ -11,17 +11,17 @@ import Prelude
 main :: IO ()
 main = do
   (host', _port') <- mongoSettings
-  pipe <- runIOE $ connect (host (read $ unpack host')::Host)
+  pipe <- runIOE $ connect (host host')
   e <- access pipe master dbName run
   close pipe
   print e
 
-mongoSettings :: IO (Text, Text)
+mongoSettings :: IO (String, String)
 mongoSettings = do
   fstr <- B.readFile "mongo.json"
   let v = decode fstr :: Maybe Value
-  let hostVal = v ^. key (pack "host") . asText
-      portVal = v ^. key (pack "port") . asText
+  let hostVal = v ^. key (pack "host") :: Maybe String
+      portVal = v ^. key (pack "port") :: Maybe String
   let _host = fromJust hostVal
       _port =  fromJust portVal
   return (_host,_port)
