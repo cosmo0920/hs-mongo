@@ -1,10 +1,10 @@
-module HSMongo
+module App.Mongo
   ( run
   , dbName ) where
 
 import Database.MongoDB
 import Prelude
-import Util
+import App.Util
 
 run :: Action IO ()
 run = do
