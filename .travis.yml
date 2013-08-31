@@ -1,0 +1,15 @@
+language: haskell
+services: mongodb
+
+before_script:
+  - cp mongo-dummy.json mongo.json
+  - cp tests/mongo-dummy.json tests/mongo.json
+
+script:
+  - ~/.cabal/bin/cabal-dev configure --enable-tests
+  - ~/.cabal/bin/cabal-dev build
+  - ~/.cabal/bin/cabal-dev test
+
+install:
+  - cabal install cabal-dev
+  - ~/.cabal/bin/cabal-dev install --only-dependencies --enable-tests
