@@ -1,6 +1,8 @@
 HS-Mongo
 ======
 
+[![Build Status](https://travis-ci.org/cosmo0920/hs-mongo.png?branch=master)](https://travis-ci.org/cosmo0920/hs-mongo)
+
 The source code for Database.MongoDB.
 
 Simple CRUD (now partial), and some test code.
