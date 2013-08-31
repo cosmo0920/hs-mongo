@@ -1,0 +1,13 @@
+language: haskell
+
+before_script:
+  - cp mongo-dummy.json mongo.json
+  - cp tests/mongo-dummy.json tests/mongo.json
+
+script:
+  - ~/.cabal/bin/cabal-dev configure && ~/.cabal/bin/cabal-dev build
+
+install:
+  - sudo apt-get install -qq mongodb-10gen
+  - cabal install cabal-dev
+  - ~/.cabal/bin/cabal-dev install --only-dependencies
