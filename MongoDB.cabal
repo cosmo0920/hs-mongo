@@ -17,6 +17,7 @@ cabal-version:       >=1.8
 executable hs-mongo
   main-is: Main.hs
   other-modules: App.Mongo
+                 App.Mongo.Internal
                  App.Util
                  App.Setting
   ghc-options:       -Wall -O2 -fno-warn-type-defaults -fno-warn-unused-do-bind
