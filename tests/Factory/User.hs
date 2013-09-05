@@ -28,8 +28,10 @@ withUsers :: IO a -> IO a
 withUsers = bracket_ setup teardown
   where
     setup = withDB dbName $ insertMany collectionName [
-      [ "user_id" =: "1", "name" =: "test user1"],
-      [ "user_id" =: "2", "name" =: "test user2"]]
+      [ "name" =: "test user1"
+      , "email" =: ["mail1" =: "test@example.com", "mail2" =: "test@test.jp"]],
+      [ "name" =: "test user2"
+      , "email" =: ["mail1" =: "example@test.com", "mail2" =: "example@test.net"]]]
     teardown = withDB dbName $ delete (select [] $ collectionName)
 
 -- setup/teardown
@@ -37,6 +39,8 @@ withUsersNotFound :: IO a -> IO a
 withUsersNotFound = bracket_ setup teardown
   where
     setup = withDB dbName $ insertMany collectionName [
-      [ "user_id" =: "1", "name" =: "test user"],
-      [ "user_id" =: "2", "name" =: "some user"]]
+      [ "name" =: "test user"
+      , "email" =: ["mail1" =: "test@example.com", "mail2" =: "test@test.jp"]],
+      [ "name" =: "some user"
+      , "email" =: ["mail1" =: "example@test.com", "mail2" =: "example@test.net"]]]
     teardown = withDB dbName $ delete (select [] $ collectionName)
