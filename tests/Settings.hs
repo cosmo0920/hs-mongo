@@ -13,8 +13,8 @@ mongoSettings :: IO (String, String)
 mongoSettings = do
   fstr <- B.readFile "mongo.json"
   let v = decode fstr :: Maybe Value
-  let hostVal = v ^. key (pack "host") :: Maybe String
-      portVal = v ^. key (pack "port") :: Maybe String
+  let hostVal = v ^. key (pack "mongo") ^. key (pack "host") :: Maybe String
+      portVal = v ^. key (pack "mongo") ^. key (pack "port") :: Maybe String
   let _host = fromJust hostVal
       _port =  fromJust portVal
   return (_host,_port)
