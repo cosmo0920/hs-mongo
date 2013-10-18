@@ -1,11 +1,11 @@
-module App.Mongo
+module Database.MongoDB.App.Mongo
   ( run
   , dbName ) where
 
 import Database.MongoDB
 import Prelude
-import App.Util
-import App.Mongo.Internal
+import Database.MongoDB.App.Util
+import Database.MongoDB.App.Mongo.Internal
 
 run :: Action IO ()
 run = do

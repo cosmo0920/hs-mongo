@@ -1,5 +1,5 @@
-import App.Mongo
-import App.Setting
+import Database.MongoDB.App.Mongo
+import Database.MongoDB.App.Setting
 import Database.MongoDB
 import Prelude
 

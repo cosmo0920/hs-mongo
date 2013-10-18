@@ -1,4 +1,4 @@
-module App.Util
+module Database.MongoDB.App.Util
   ( dbName
   , collectionName
   , printDocs ) where

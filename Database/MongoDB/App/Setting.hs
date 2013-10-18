@@ -1,4 +1,4 @@
-module App.Setting
+module Database.MongoDB.App.Setting
     ( mongoSettings
     , databaseSettings ) where
 

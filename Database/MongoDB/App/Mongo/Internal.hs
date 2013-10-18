@@ -1,4 +1,4 @@
-module App.Mongo.Internal
+module Database.MongoDB.App.Mongo.Internal
   ( clearUser
   , insertUser
   , allUser
@@ -8,7 +8,7 @@ module App.Mongo.Internal
 
 import Database.MongoDB
 import Prelude
-import App.Util
+import Database.MongoDB.App.Util
 
 -- DELETE
 clearUser :: Action IO ()
